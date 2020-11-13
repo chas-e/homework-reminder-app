@@ -4,16 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Document</title>
+    <title>Homework Reminder App</title>
+    <script defer src="./js/script.js"></script>
 </head>
 <body>
+    <header>
+        <h1>
+            Homework Reminder App
+        </h1>
+    </header>
     <main>
-        <section>
-            <h1>
-                Hello World!
-            </h1>
+        <section class="homework-form">
+            <form action="POST">
+                <div class="form-item">
+                    <label for="date">Due Date</label>
+                    <input type="date" name="date">
+                </div>
+                
+                <div class="form-item">
+                    <label for="class">Class</label>
+                    <input type="text" name="class">
+                </div>
+                <div class="form-item">
+                    <label for="assignment">Assignment Details</label>
+                    <input type="textarea" name="assignment">
+                </div>
+            </form>
         </section>
     </main>
     
 </body>
+
 </html>
