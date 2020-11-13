@@ -6,4 +6,15 @@
 header {
     background-color: black;
     color: darkorange;
+    text-align: center;
+}
+
+.homework-form {
+    color: darkorange;
+    background-color: black;
+}
+
+.submit-btn {
+    background-color: teal;
+    color: whitesmoke;
 }
