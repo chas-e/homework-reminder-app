@@ -9,9 +9,18 @@ header {
     text-align: center;
 }
 
+ul {
+    list-style: none;
+}
+
+.assignment-list {
+    text-align: center;
+}
+
 .homework-form {
     color: darkorange;
     background-color: black;
+    text-align: center;
 }
 
 .submit-btn {
