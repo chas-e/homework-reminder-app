@@ -1,30 +1,40 @@
 alert('Javascript is loaded');
 
 // constants
+const buttonEl = document.querySelector('.submit-btn');
 
-// cached element refs
-const h1El = document.querySelector('h1');
-
-// App State
 const assignmentEls = [
-    {dueDateEl: 2020-11-16, 
-    classEl: 'English', 
-    assignmentDetailsEl: 'write a paper on some author',
+    {dateEl: 2020-11-16, 
+        classEl: 'English', 
+        detailsEl: 'write a paper on some author',
+        
+    },
+];
 
-}, 'strings', 23, 23.4, true];
+// App's State variables
 
-console.log('assignmentEls', assignmentEls[0]);
-
-
-// event listeners
-
-
-
-// functions
-
+let dateEl, classEl, detailsEl;
+    
+    
+// cached element refs
 
 
 
-// render method
+// Event listeners
+buttonEl.addEventListener('click', function getData(data) {
+    assignmentEls.push(data);
+});
+
+
+
+
+// Functions
+// todo: write callback function to get input data
+
+//todo: write function to store the data - local storage
+
+
+
+// Render method
 
 
