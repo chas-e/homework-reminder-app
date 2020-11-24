@@ -54,6 +54,10 @@ function pushData() {
     // return storageEl;
 }
 
+function storeData () {
+    storageEl.setItem('assignments', assignmentEls);
+}
+
 function clearInputs() {
     dateEl.value = null;
     classEl.value = null;
@@ -68,7 +72,8 @@ function clearInputs() {
 function handleSubmit(event) {
     event.preventDefault();
     pushData();
-    console.log(assignmentEls);
+    storeData();
+    console.log(storageEl);
     renderListEls();
     clearInputs();
 }
