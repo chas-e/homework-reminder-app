@@ -33,29 +33,30 @@ buttonEl.addEventListener('click', handleSubmit);
 
 
 // Functions
-// todo: write callback function to get input data
+// need unique key for each assignment 
+// todo: alter data structure to include keys for assignments
 function getData() {
     data = {
         dateEl: dateEl.value,
         classEl: classEl.value,
         detailsEl: detailsEl.value
     };
-    // console.log(data);
     return data;
 }
 
 
-//todo: write function to store the data - local storage
 function pushData() {
     data = getData();
     return assignmentEls.push(data);
-    // storageEl.setItem('assignments', assignmentEls);
-    // console.log(storageEl);
-    // return storageEl;
 }
 
+// todo: write function to store the data - local storage
+// stringify our assignmentEls object JSON.stringify('assignmentEls');
+
+
+// refactor to stringify and store each assigment
 function storeData () {
-    storageEl.setItem('assignments', assignmentEls);
+    return;
 }
 
 function clearInputs() {
@@ -102,5 +103,5 @@ function clearStorage() {
     localStorage.clear();
 }
 
-
+// remove assignment =  localStorage.removeItem('uniqueKey');
 
