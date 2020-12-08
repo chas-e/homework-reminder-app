@@ -4,9 +4,9 @@ alert('Javascript is loaded');
 const buttonEl = document.querySelector('.submit-btn');
 
 const assignmentEls = [
-    {dateEl: 2020-11-16, 
-        classEl: 'English', 
-        detailsEl: 'write a paper on some author',
+    {dateEl: 11-16-2020, 
+     classEl: 'English', 
+     detailsEl: 'write a paper on some author',
         
     },
 ];
@@ -55,8 +55,10 @@ function pushData() {
 
 
 // refactor to stringify and store each assigment
-function storeData () {
-    return;
+function storeData (data) {
+    let data = JSON.stringify(data);
+    localStorage.setItem(data);
+
 }
 
 function clearInputs() {
@@ -67,7 +69,7 @@ function clearInputs() {
 
 // function to remove assignments when completed
 
-// need to give each ul an identifier??
+// need to give each ul an identifier as key for Storage
 
 // click handler function
 function handleSubmit(event) {
