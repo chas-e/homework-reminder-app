@@ -3,13 +3,7 @@ alert('Javascript is loaded');
 // constants
 const buttonEl = document.querySelector('.submit-btn');
 
-const assignmentEls = [
-    {dateEl: 11-16-2020, 
-     classEl: 'English', 
-     detailsEl: 'write a paper on some author',
-        
-    },
-];
+const assignmentEls = [];
 
 // App's State variables
 
@@ -33,10 +27,16 @@ buttonEl.addEventListener('click', handleSubmit);
 
 
 // Functions
-// need unique key for each assignment 
+// need unique key for each assignment - use random number generator
+function getKey() {
+    return keyEl = Date.now();
+}
+
+
 // todo: alter data structure to include keys for assignments
 function getData() {
     data = {
+        key: getKey(),
         dateEl: dateEl.value,
         classEl: classEl.value,
         detailsEl: detailsEl.value
@@ -55,9 +55,11 @@ function pushData() {
 
 
 // refactor to stringify and store each assigment
-function storeData (data) {
-    let data = JSON.stringify(data);
-    localStorage.setItem(data);
+function storeData () {
+    data = getData();
+    let jsonData = JSON.stringify(data);
+    console.log(jsonData);
+    localStorage.setItem(`${keyEl}`, jsonData);
 
 }
 
@@ -67,9 +69,12 @@ function clearInputs() {
     detailsEl.value = null;
 }
 
-// function to remove assignments when completed
+// function to retrieve items from storage
+function getAssignments() {
+    assignments = localStorage.getItem()
+}
 
-// need to give each ul an identifier as key for Storage
+// function to remove assignments when completed
 
 // click handler function
 function handleSubmit(event) {
