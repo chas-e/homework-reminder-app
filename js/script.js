@@ -2,7 +2,7 @@ alert('Javascript is loaded');
 
 // constants
 const buttonEl = document.querySelector('.submit-btn');
-
+const $delButtonEls = $(".delete-assignment");
 
 // App's State variables
 
@@ -20,8 +20,11 @@ storedItems = [];
 
 
 // Event listeners
+//submit button event listener
 buttonEl.addEventListener('click', handleSubmit);
 
+// listener to handle delete button click
+$('#assignment-block div').on('click', 'button', handleDelete);
 
 // Functions
 // need unique key for each assignment - Date.now() to generate unique key (ms since 1972)
@@ -94,9 +97,14 @@ function handleSubmit(event) {
     event.preventDefault();
     pushData();
     storeData();
-    console.log(storageEl);
     renderListEls();
     clearInputs();
+}
+
+// handle delete assignment
+function handleDelete(event) {
+    event.preventDefault();
+    $(this).closest('div').remove();
 }
 
 // generate html from input
@@ -104,6 +112,7 @@ function generateHTML() {
     retrieveData();
     listEls = assignmentEls;
     return listEls.map((el) => `
+    <div id="assignment-block">
     <h3>${el.classEl} Assignment</h3>
     <ul>
     <li>${el.dateEl}</li>
@@ -111,6 +120,7 @@ function generateHTML() {
     <li>${el.detailsEl}</li>
     </ul>
     <button class="delete-assignment" type="submit">💣</button>
+    </div>
     ` 
     );
 }
