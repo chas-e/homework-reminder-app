@@ -54,6 +54,7 @@ function storeData () {
     localStorage.setItem(`${keyEl}`, jsonData);
 }
 
+// function to retrieve items from storage
 function retrieveData() {
     for (prop in storageEl) {
         storedItems.push(JSON.parse(localStorage.getItem(prop)));
@@ -85,13 +86,6 @@ function clearInputs() {
     detailsEl.value = null;
 }
 
-// function to retrieve items from storage
-function getAssignments() {
-    assignments = localStorage.getItem();
-}
-
-// function to remove assignments when completed
-
 // click handler function
 function handleSubmit(event) {
     event.preventDefault();
@@ -101,10 +95,20 @@ function handleSubmit(event) {
     clearInputs();
 }
 
+// function gets item by key
+
+// function removes item from storage
+function removeStoredItem() {
+    let storedItem = retrieveStoredKey()    
+    storageEl.removeItem(storedItem);
+}
+
+
+// function to remove assignments when completed
 // handle delete assignment
 function handleDelete(event) {
     event.preventDefault();
-    $(this).closest('div').remove();
+
 }
 
 // generate html from input
