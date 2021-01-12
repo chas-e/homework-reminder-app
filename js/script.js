@@ -95,6 +95,8 @@ function handleSubmit(event) {
     clearInputs();
 }
 
+// ToDo: Add Validation to not accept empty fields
+
 // function gets item by key
 
 // function removes item from storage
@@ -116,7 +118,7 @@ function generateHTML() {
     retrieveData();
     listEls = assignmentEls;
     return listEls.map((el) => `
-    <div id="assignment-block">
+    <div class="assignment-block" id=${el.key}>
     <h3>${el.classEl} Assignment</h3>
     <ul>
     <li>${el.dateEl}</li>
