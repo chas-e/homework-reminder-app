@@ -98,10 +98,13 @@ function handleSubmit(event) {
 // ToDo: Add Validation to not accept empty fields
 
 // function gets item by key
+function $retrieveStoredKey() {
+    
+}
 
 // function removes item from storage
 function removeStoredItem() {
-    let storedItem = retrieveStoredKey()    
+    let storedItemKey = retrieveStoredKey();    
     storageEl.removeItem(storedItem);
 }
 
