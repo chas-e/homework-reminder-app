@@ -21,7 +21,7 @@
                 <li>
                     Assignment 1
                 </li>
-                <li>
+                <li>        
                     Assignment 2
                 </li>
                 <li>
@@ -33,18 +33,21 @@
             <form class="homework-form">
                 <div class="form-item">
                     <label for="date">Due Date</label>
-                    <input type="date" name="date" id="date">
+                    <input type="date" name="date" id="date" required>
                 </div>
                 <div class="form-item">
                     <label for="class">Class</label>
-                    <input type="text" name="class" id="class">
+                    <input type="text" name="class" id="class" required>
                 </div>
                 <div class="form-item">
                     <label for="assignment">Assignment Details</label>
-                    <input type="textarea" name="assignment" id="assignment">
+                    <input type="textarea" name="assignment" id="assignment" required>
                 </div>
                 <button class="submit-btn">
                     Submit
+                </button>
+                <button id="clear-btn">
+                    Clear
                 </button>
             </form>
         </section>

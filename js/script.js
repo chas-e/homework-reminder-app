@@ -2,11 +2,12 @@ alert('Javascript is loaded');
 
 // constants
 const buttonEl = document.querySelector('.submit-btn');
-const $delButtonEls = $(".delete-assignment");
+const deleteButtonEls = document.querySelectorAll('.delete-assignment');
+const clearButtonEl = document.getElementById('#clear-btn');
 
 // App's State variables
 
-let dateEl, classEl, detailsEl, assignmentListEl, assignmentEls, storedItems, listEls, data, storageEl;
+let dateEl, classEl, detailsEl, assignmentBlock, assignmentListEl, assignmentEls, storedItems, listEls, data, storageEl;
     
     
 // cached element refs
@@ -17,6 +18,7 @@ assignmentListEl = document.querySelector(".assignment-list");
 assignmentEls = [];
 storageEl = window.localStorage;
 storedItems = [];
+assignmentBlockEls = document.querySelectorAll('.assignment-block');
 
 
 // Event listeners
@@ -24,7 +26,11 @@ storedItems = [];
 buttonEl.addEventListener('click', handleSubmit);
 
 // listener to handle delete button click
-$('#assignment-block div').on('click', 'button', handleDelete);
+// assignmentBlockEls.addeventListener('click', handleDelete);
+
+// listener for clear button
+clearButtonEl.addEventListener('click', handleClear);
+
 
 // Functions
 // need unique key for each assignment - Date.now() to generate unique key (ms since 1972)
@@ -95,10 +101,21 @@ function handleSubmit(event) {
     clearInputs();
 }
 
+// handler function for clear
+function handleClear(event) {
+    event.preventDefault();
+    clearStorage();
+}
+
 // ToDo: Add Validation to not accept empty fields
 
+// get index from dom element assignmentEls[idx].key
+function retrieveAssignmentIndex() {
+    
+}
+
 // function gets item by key
-function $retrieveStoredKey() {
+function retrieveStoredKey() {
     
 }
 
@@ -143,5 +160,3 @@ function renderListEls () {
 function clearStorage() {
     localStorage.clear();
 }
-
-

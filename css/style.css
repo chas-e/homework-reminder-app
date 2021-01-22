@@ -27,3 +27,8 @@ ul {
     background-color: teal;
     color: whitesmoke;
 }
+
+#clear-btn {
+    background-color: darkred;
+    color: whitesmoke;
+}
