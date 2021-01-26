@@ -13,6 +13,10 @@ ul {
     list-style: none;
 }
 
+button:hover {
+    opacity: 0.85;
+}
+
 .assignment-list {
     text-align: center;
 }
@@ -26,6 +30,12 @@ ul {
 .submit-btn {
     background-color: teal;
     color: whitesmoke;
+}
+
+.clear-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #clear-btn {

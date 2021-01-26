@@ -3,7 +3,7 @@ alert('Javascript is loaded');
 // constants
 const buttonEl = document.querySelector('.submit-btn');
 const deleteButtonEls = document.querySelectorAll('.delete-assignment');
-const clearButtonEl = document.getElementById('#clear-btn');
+const clearButtonEl = document.getElementById('clear-btn');
 
 // App's State variables
 
@@ -111,25 +111,26 @@ function handleClear(event) {
 
 // get index from dom element assignmentEls[idx].key
 function retrieveAssignmentIndex() {
-    
+    return;
 }
 
 // function gets item by key
 function retrieveStoredKey() {
-    
+    return;
 }
 
 // function removes item from storage
 function removeStoredItem() {
     let storedItemKey = retrieveStoredKey();    
-    storageEl.removeItem(storedItem);
+    storageEl.removeItem(storedItemKey);
 }
 
 
 // function to remove assignments when completed
 // handle delete assignment
 function handleDelete(event) {
-    event.preventDefault();
+    return;
+    
 
 }
 
@@ -158,5 +159,5 @@ function renderListEls () {
 }
 
 function clearStorage() {
-    localStorage.clear();
+    storageEl.clear();
 }
