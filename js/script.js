@@ -1,4 +1,19 @@
-alert('Javascript is loaded');
+// Adapted from blingJS
+
+window.e = document.querySelector.bind(document);
+window.ee = document.querySelectorAll.bind(document);
+
+Node.prototype.on = function (name, fxn) {
+    this.addEventListener(name, fxn);
+}
+
+NodeList.prototype.__proto__ = Array.prototype;
+
+NodeList.prototype.on = function (name, fxn) {
+    this.forEach(function (el, i) {
+        el.on(name, fxn);
+    });
+}
 
 // constants
 const buttonEl = document.querySelector('.submit-btn');
@@ -160,4 +175,5 @@ function renderListEls () {
 
 function clearStorage() {
     storageEl.clear();
+    location.reload();
 }

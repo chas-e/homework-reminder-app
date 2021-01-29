@@ -7,10 +7,16 @@ header {
     background-color: black;
     color: darkorange;
     text-align: center;
+    font-family: 'Notable', sans-serif;
+
 }
 
 ul {
     list-style: none;
+}
+
+main {
+    font-family: 'Noto Sans', sans-serif;
 }
 
 button:hover {
