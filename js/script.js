@@ -194,3 +194,4 @@ function clearStorage() {
     storageEl.clear();
     location.reload();
 }
+
