@@ -3,7 +3,7 @@
 window.e = document.querySelector.bind(document);
 window.ee = document.querySelectorAll.bind(document);
 
-Node.prototype.on = function (name, fxn) {
+Node.prototype.on = window.on =  function (name, fxn) {
     this.addEventListener(name, fxn);
 }
 
@@ -16,6 +16,7 @@ NodeList.prototype.on = function (name, fxn) {
 }
 
 // constants
+
 const buttonEl = document.querySelector('.submit-btn');
 const deleteButtonEls = document.querySelectorAll('.delete-assignment');
 const clearButtonEl = document.getElementById('clear-btn');
@@ -26,6 +27,7 @@ let dateEl, classEl, detailsEl, assignmentBlock, assignmentListEl, assignmentEls
     
     
 // cached element refs
+
 dateEl = document.getElementById('date');
 classEl = document.getElementById('class');
 detailsEl = document.getElementById('assignment');
@@ -38,17 +40,20 @@ assignmentBlockEls = document.querySelectorAll('.assignment-block');
 
 // Event listeners
 //submit button event listener
+
 buttonEl.addEventListener('click', handleSubmit);
 
 // listener to handle delete button click
 // assignmentBlockEls.addeventListener('click', handleDelete);
 
 // listener for clear button
+
 clearButtonEl.addEventListener('click', handleClear);
 
 
 // Functions
 // need unique key for each assignment - Date.now() to generate unique key (ms since 1972)
+
 function getKey() {
     return keyEl = Date.now();
 }
@@ -69,6 +74,7 @@ function pushData() {
 }
 
 // stringify and store each assigment
+
 function storeData () {
     data = getData();
     let jsonData = JSON.stringify(data);
@@ -76,6 +82,7 @@ function storeData () {
 }
 
 // function to retrieve items from storage
+
 function retrieveData() {
     for (prop in storageEl) {
         storedItems.push(JSON.parse(localStorage.getItem(prop)));
@@ -108,6 +115,7 @@ function clearInputs() {
 }
 
 // click handler function
+
 function handleSubmit(event) {
     event.preventDefault();
     pushData();
@@ -117,6 +125,7 @@ function handleSubmit(event) {
 }
 
 // handler function for clear
+
 function handleClear(event) {
     event.preventDefault();
     clearStorage();
@@ -125,16 +134,19 @@ function handleClear(event) {
 // ToDo: Add Validation to not accept empty fields
 
 // get index from dom element assignmentEls[idx].key
+
 function retrieveAssignmentIndex() {
     return;
 }
 
 // function gets item by key
+
 function retrieveStoredKey() {
     return;
 }
 
 // function removes item from storage
+
 function removeStoredItem() {
     let storedItemKey = retrieveStoredKey();    
     storageEl.removeItem(storedItemKey);
@@ -143,6 +155,7 @@ function removeStoredItem() {
 
 // function to remove assignments when completed
 // handle delete assignment
+
 function handleDelete(event) {
     return;
     
@@ -150,6 +163,7 @@ function handleDelete(event) {
 }
 
 // generate html from input
+
 function generateHTML() {
     retrieveData();
     listEls = assignmentEls;
@@ -168,10 +182,13 @@ function generateHTML() {
 }
 
 // Render method
+
 function renderListEls () {
     let html = generateHTML().join('');
     assignmentListEl.innerHTML = html;
 }
+
+// Clear all items from storage
 
 function clearStorage() {
     storageEl.clear();
