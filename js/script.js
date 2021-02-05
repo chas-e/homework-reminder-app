@@ -49,7 +49,7 @@ assignmentListEl.on('click', event => {
     if (!event.target.matches('.delete-assignment')) return; 
     let divID = event.target.closest('div').getAttribute('id');
     storageEl.removeItem(divID);
-    location.reload()
+    location.reload();
     }
 );
 
