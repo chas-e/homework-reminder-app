@@ -1,7 +1,7 @@
 // Adapted from blingJS
 
-window.e = document.querySelector.bind(document);
-window.ee = document.querySelectorAll.bind(document);
+window.q = document.querySelector.bind(document);
+window.qq = document.querySelectorAll.bind(document);
 
 Node.prototype.on = window.on =  function (name, fxn) {
     this.addEventListener(name, fxn);
@@ -17,13 +17,12 @@ NodeList.prototype.on = function (name, fxn) {
 
 // constants
 
-const buttonEl = document.querySelector('.submit-btn');
-const deleteButtonEls = document.querySelectorAll('.delete-assignment');
+const buttonEl = q('.submit-btn');
 const clearButtonEl = document.getElementById('clear-btn');
 
 // App's State variables
 
-let dateEl, classEl, detailsEl, assignmentBlock, assignmentListEl, assignmentEls, storedItems, listEls, data, storageEl;
+let dateEl, classEl, detailsEl, assignmentBlock, assignmentListEl, assignmentEls, storedItems, listEls, data, storageEl, deleteButtonEls;
     
     
 // cached element refs
@@ -31,24 +30,32 @@ let dateEl, classEl, detailsEl, assignmentBlock, assignmentListEl, assignmentEls
 dateEl = document.getElementById('date');
 classEl = document.getElementById('class');
 detailsEl = document.getElementById('assignment');
-assignmentListEl = document.querySelector(".assignment-list");
+assignmentListEl = q(".assignment-list");
 assignmentEls = [];
 storageEl = window.localStorage;
 storedItems = [];
-assignmentBlockEls = document.querySelectorAll('.assignment-block');
+assignmentBlockEls = qq('.assignment-block');
+deleteButtonEls = qq('.delete-assignment');
 
 
 // Event listeners
 //submit button event listener
 
-buttonEl.addEventListener('click', handleSubmit);
+buttonEl.on('click', handleSubmit);
 
 // listener to handle delete button click
-// assignmentBlockEls.addeventListener('click', handleDelete);
+
+assignmentListEl.on('click', event => {
+    if (!event.target.matches('.delete-assignment')) return; 
+    let divID = event.target.closest('div').getAttribute('id');
+    storageEl.removeItem(divID);
+    location.reload()
+    }
+);
 
 // listener for clear button
 
-clearButtonEl.addEventListener('click', handleClear);
+clearButtonEl.on('click', handleClear);
 
 
 // Functions
@@ -115,9 +122,9 @@ function clearInputs() {
 }
 
 // click handler function
+// ToDo: Add Validation to not accept empty fields
 
-function handleSubmit(event) {
-    event.preventDefault();
+function handleSubmit() {
     pushData();
     storeData();
     renderListEls();
@@ -129,37 +136,6 @@ function handleSubmit(event) {
 function handleClear(event) {
     event.preventDefault();
     clearStorage();
-}
-
-// ToDo: Add Validation to not accept empty fields
-
-// get index from dom element assignmentEls[idx].key
-
-function retrieveAssignmentIndex() {
-    return;
-}
-
-// function gets item by key
-
-function retrieveStoredKey() {
-    return;
-}
-
-// function removes item from storage
-
-function removeStoredItem() {
-    let storedItemKey = retrieveStoredKey();    
-    storageEl.removeItem(storedItemKey);
-}
-
-
-// function to remove assignments when completed
-// handle delete assignment
-
-function handleDelete(event) {
-    return;
-    
-
 }
 
 // generate html from input
@@ -194,4 +170,5 @@ function clearStorage() {
     storageEl.clear();
     location.reload();
 }
+
 
